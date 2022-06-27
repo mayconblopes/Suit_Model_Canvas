@@ -1,0 +1,146 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suit Model Canvas</title>
+    <link rel="stylesheet" href="{% static 'smc.css' %}">
+</head>
+<body>
+    <section class="canvas">
+        
+        <section class="pretensao">
+            <form action="" method="POST">  
+                {% csrf_token %}
+                <h4>Pretensão <button type="submit">💾</button></h4>
+                <textarea class="smc-textarea" name="pretensao-text">{{ smc.pretensao }}</textarea> 
+            </form>    
+        </section>
+
+        <section class="causa-pedir">
+            <form action="" method="POST">  
+                {% csrf_token %}
+                <h4>Causa de Pedir <button type="submit">💾</button></h4>
+                <textarea class="smc-textarea" name="causa-pedir-text">{{ smc.causa_pedir }}</textarea> 
+            </form> 
+        </section>
+
+        <section class="partes-processo">
+            <div>
+                <h5>Partes do processo</h5>
+                <textarea></textarea>   
+            </div>
+        </section>
+
+        <section class="provas">
+            <div>
+                <h4>Provas</h4>
+                <textarea></textarea>   
+             </div>
+        </section>
+
+        <section class="riscos">
+            <div>
+                <h5>Riscos</h5>
+                <textarea></textarea>   
+            </div>
+        </section>
+        
+        <section class="terceiros">
+            <div>
+                <h5>Terceiros</h5>
+                <textarea></textarea>   
+            </div>
+        </section>
+        
+        <section class="requisitos-documentais">
+            <div>
+                <h4>Requisitos documentais</h4>
+                <textarea></textarea>   
+            </div>
+        </section>
+
+        <section class="pedidos">
+            <h4></h4>
+            <div>
+                <h4>Pedidos</h4>
+                <textarea></textarea>   
+            </div>
+        </section>
+
+        <section class="competencia">
+            <div>
+                <h5>Competência</h5>
+                <textarea></textarea>   
+            </div>
+        </section>
+
+        <section class="entregas-processuais">
+            <div>
+                <h4>Entregas processuais</h4>
+                <textarea></textarea>   
+            </div>
+        </section>
+
+        <section class="prazos">
+            <div>
+                <h5>Prazos</h5>
+                <textarea></textarea>   
+            </div>
+        </section>
+
+        <section class="equipe">
+            <div>
+                <h5>Equipe</h5>
+                <textarea></textarea>   
+            </div>
+        </section>
+
+        <section class="nome-peca">
+            <div>
+                <h4>Nome da peça</h4>
+                <textarea></textarea>   
+             </div>
+        </section>
+
+        <section class="beneficios">
+            <div>
+                <h4>Benefícios</h4>
+                <textarea></textarea>   
+            </div>
+        </section>
+
+        <section class="restricoes">
+            <div>
+                <h4>Restrições</h4>
+                <textarea></textarea>   
+             </div>
+        </section>
+
+        <section class="honorarios-adv">
+            <div>
+                <h5>Honorários advocatícios</h5>
+                <textarea></textarea>   
+            </div>
+        </section>
+        
+        <section class="demais-despesas">
+            <h4></h4>
+            <div>
+                <h5>Demais despesas</h5>
+                <textarea></textarea>   
+            </div>
+        </section>
+    </section>
+    
+    <footer class="ementa">
+            <input type="textarea" placeholder="Ementa">
+    </footer>
+
+</body>
+
+
+</html>
