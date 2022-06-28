@@ -136,3 +136,12 @@ textarea::-webkit-scrollbar-thumb {
     margin: 8px;
 }
 
+.autosave-message {
+    text-align: center;
+    margin-top: 8px;
+    color: greenyellow;
+}
+
+.autosave-message--saving {
+    color: #999999;
+}
