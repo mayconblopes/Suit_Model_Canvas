@@ -9,137 +9,155 @@
     <title>Suit Model Canvas</title>
     <link rel="stylesheet" href="{% static 'smc.css' %}">
     <!-- htmlx script -->
-    <script src="https://unpkg.com/htmx.org@1.7.0"></script>
+    <script src="https://unpkg.com/htmx.org@1.7.0" integrity="sha384-EzBXYPt0/T6gxNp0nuPtLkmRpmDBbjg6WmCUZRLXBBwYYmwAUxzlSGej0ARHX0Bo" crossorigin="anonymous"></script>
 </head>
 <body>
     <section class="canvas">
         
         <section class="pretensao">
-            <form action="" method="POST">  
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">  
                 {% csrf_token %}
-                <h4>Pretensão <button type="submit">💾</button></h4>
+                <h4>Pretensão</h4>
                 <textarea class="smc-textarea" name="pretensao-text">{{ smc.pretensao }}</textarea> 
-            </form>    
+            </form>  
         </section>
 
         <section class="causa-pedir">
-            <form action="" method="POST">  
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">  
                 {% csrf_token %}
-                <h4>Causa de Pedir <button type="submit">💾</button></h4>
+                <h4>Causa de Pedir</h4>
                 <textarea class="smc-textarea" name="causa-pedir-text">{{ smc.causa_pedir }}</textarea> 
-            </form> 
+            </form>  
         </section>
 
         <section class="partes-processo">
             <div>
-                <h5>Partes do processo</h5>
-                <textarea></textarea>   
+                <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                    {% csrf_token %}
+                    <h5>Partes do processo</h5>
+                    <textarea class="smc-textarea" name="partes-processo-text">{{ smc.partes_processo }}</textarea> 
+                </form>
             </div>
         </section>
 
         <section class="provas">
-            <div>
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                {% csrf_token %}
                 <h4>Provas</h4>
-                <textarea></textarea>   
-             </div>
+                <textarea class="smc-textarea" name="provas-text">{{ smc.provas }}</textarea> 
+            </form>
         </section>
 
         <section class="riscos">
-            <div>
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                {% csrf_token %}
                 <h5>Riscos</h5>
-                <textarea></textarea>   
-            </div>
+                <textarea class="smc-textarea" name="riscos-text">{{ smc.riscos }}</textarea> 
+            </form>
         </section>
         
         <section class="terceiros">
-            <div>
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                {% csrf_token %}
                 <h5>Terceiros</h5>
-                <textarea></textarea>   
-            </div>
+                <textarea class="smc-textarea" name="terceiros-text">{{ smc.terceiros }}</textarea> 
+            </form>
         </section>
         
         <section class="requisitos-documentais">
-            <div>
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                {% csrf_token %}
                 <h4>Requisitos documentais</h4>
-                <textarea></textarea>   
-            </div>
+                <textarea class="smc-textarea" name="requisitos-documentais-text">{{ smc.requisitos_documentais }}</textarea> 
+            </form>
         </section>
 
         <section class="pedidos">
-            <h4></h4>
-            <div>
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                {% csrf_token %}
                 <h4>Pedidos</h4>
-                <textarea></textarea>   
-            </div>
+                <textarea class="smc-textarea" name="pedidos-text">{{ smc.pedidos }}</textarea> 
+            </form>
         </section>
 
         <section class="competencia">
-            <div>
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                {% csrf_token %}
                 <h5>Competência</h5>
-                <textarea></textarea>   
-            </div>
+                <textarea class="smc-textarea" name="competencia-text">{{ smc.competencia }}</textarea> 
+            </form>
         </section>
 
         <section class="entregas-processuais">
-            <div>
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                {% csrf_token %}
                 <h4>Entregas processuais</h4>
-                <textarea></textarea>   
-            </div>
+                <textarea class="smc-textarea" name="entregas-processuais-text">{{ smc.entregas_processuais }}</textarea> 
+            </form>
         </section>
 
         <section class="prazos">
-            <div>
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                {% csrf_token %}
                 <h5>Prazos</h5>
-                <textarea></textarea>   
-            </div>
+                <textarea class="smc-textarea" name="prazos-text">{{ smc.prazos }}</textarea> 
+            </form>
         </section>
 
         <section class="equipe">
-            <div>
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                {% csrf_token %}
                 <h5>Equipe</h5>
-                <textarea></textarea>   
-            </div>
+                <textarea class="smc-textarea" name="equipe-text">{{ smc.equipe }}</textarea> 
+            </form>
         </section>
 
         <section class="nome-peca">
-            <div>
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                {% csrf_token %}
                 <h4>Nome da peça</h4>
-                <textarea></textarea>   
-             </div>
+                <textarea class="smc-textarea" name="nome-peca-text">{{ smc.nome_peca }}</textarea> 
+            </form>
         </section>
 
         <section class="beneficios">
-            <div>
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                {% csrf_token %}
                 <h4>Benefícios</h4>
-                <textarea></textarea>   
-            </div>
+                <textarea class="smc-textarea" name="beneficios-text">{{ smc.beneficios }}</textarea> 
+            </form>
         </section>
 
         <section class="restricoes">
-            <div>
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                {% csrf_token %}
                 <h4>Restrições</h4>
-                <textarea></textarea>   
-             </div>
+                <textarea class="smc-textarea" name="restricoes-text">{{ smc.restricoes }}</textarea> 
+            </form>
         </section>
 
         <section class="honorarios-adv">
-            <div>
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                {% csrf_token %}
                 <h5>Honorários advocatícios</h5>
-                <textarea></textarea>   
-            </div>
+                <textarea class="smc-textarea" name="Honorários-text">{{ smc.honorarios }}</textarea> 
+            </form>
         </section>
         
         <section class="demais-despesas">
-            <h4></h4>
-            <div>
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                {% csrf_token %}
                 <h5>Demais despesas</h5>
-                <textarea></textarea>   
-            </div>
+                <textarea class="smc-textarea" name="demais-despesas-text">{{ smc.demais_despesas }}</textarea> 
+            </form>
         </section>
     </section>
     
     <footer class="ementa">
-            <input type="textarea" placeholder="Ementa">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <input type="textarea" placeholder="Ementa" value="{{ smc.ementa }}" />
+        </form>
     </footer>
     <div class="autosave-message">Teste</div>
 
