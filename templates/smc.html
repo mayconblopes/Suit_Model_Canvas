@@ -156,7 +156,7 @@
     <footer class="ementa">
         <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
             {% csrf_token %}
-            <input type="textarea" placeholder="Ementa" value="{{ smc.ementa }}" />
+            <input type="textarea" placeholder="Ementa" value="{{ smc.ementa }}" name="ementa-text" />
         </form>
     </footer>
     <div class="autosave-message">Teste</div>
