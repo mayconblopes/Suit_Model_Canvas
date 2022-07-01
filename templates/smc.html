@@ -18,7 +18,7 @@
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">  
                 {% csrf_token %}
                 <h4>Pretensão</h4>
-                <textarea class="smc-textarea" name="pretensao-text">{{ smc.pretensao }}</textarea> 
+                <textarea class="smc-textarea" name="pretensao-text" placeholder="Aquilo que o cliente deseja realizar.">{{ smc.pretensao }}</textarea> 
             </form>  
         </section>
 
@@ -26,25 +26,23 @@
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">  
                 {% csrf_token %}
                 <h4>Causa de Pedir</h4>
-                <textarea class="smc-textarea" name="causa-pedir-text">{{ smc.causa_pedir }}</textarea> 
+                <textarea class="smc-textarea" name="causa-pedir-text" placeholder="Especificar os fatos e os fundamentos jurídicos.">{{ smc.causa_pedir }}</textarea> 
             </form>  
         </section>
 
         <section class="partes-processo">
-            <div>
                 <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                     {% csrf_token %}
                     <h5>Partes do processo</h5>
-                    <textarea class="smc-textarea" name="partes-processo-text">{{ smc.partes_processo }}</textarea> 
+                    <textarea class="smc-textarea-minor" name="partes-processo-text" placeholder="Autor/réu, reclamante/reclamado, requerente/requerido...">{{ smc.partes_processo }}</textarea> 
                 </form>
-            </div>
         </section>
 
         <section class="provas">
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                 {% csrf_token %}
                 <h4>Provas</h4>
-                <textarea class="smc-textarea" name="provas-text">{{ smc.provas }}</textarea> 
+                <textarea class="smc-textarea" name="provas-text" placeholder="Elementos necessários (documentos, testemunhos, perícias...) para demonstrar a veracidade da causa de pedir.">{{ smc.provas }}</textarea> 
             </form>
         </section>
 
@@ -52,7 +50,7 @@
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                 {% csrf_token %}
                 <h5>Riscos</h5>
-                <textarea class="smc-textarea" name="riscos-text">{{ smc.riscos }}</textarea> 
+                <textarea class="smc-textarea" name="riscos-text" placeholder="Valores na sucumbência, restrições civis/penais, obrigações de fazer...">{{ smc.riscos }}</textarea> 
             </form>
         </section>
         
@@ -60,7 +58,7 @@
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                 {% csrf_token %}
                 <h5>Terceiros</h5>
-                <textarea class="smc-textarea" name="terceiros-text">{{ smc.terceiros }}</textarea> 
+                <textarea class="smc-textarea-minor" name="terceiros-text" placeholder="Qualquer pessoa com algum interesse na causa.">{{ smc.terceiros }}</textarea> 
             </form>
         </section>
         
@@ -68,7 +66,7 @@
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                 {% csrf_token %}
                 <h4>Requisitos documentais</h4>
-                <textarea class="smc-textarea" name="requisitos-documentais-text">{{ smc.requisitos_documentais }}</textarea> 
+                <textarea class="smc-textarea" name="requisitos-documentais-text" placeholder="Lista de documentos necessários para demanda.">{{ smc.requisitos_documentais }}</textarea> 
             </form>
         </section>
 
@@ -76,7 +74,7 @@
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                 {% csrf_token %}
                 <h4>Pedidos</h4>
-                <textarea class="smc-textarea" name="pedidos-text">{{ smc.pedidos }}</textarea> 
+                <textarea class="smc-textarea" name="pedidos-text" placeholder="Rol de pedidos a ser apreciado pela autoridade competente.">{{ smc.pedidos }}</textarea> 
             </form>
         </section>
 
@@ -84,7 +82,7 @@
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                 {% csrf_token %}
                 <h5>Competência</h5>
-                <textarea class="smc-textarea" name="competencia-text">{{ smc.competencia }}</textarea> 
+                <textarea class="smc-textarea-minor" name="competencia-text" placeholder="Justiça do Trabalho, Justiça Estadual, Juizado Especial...">{{ smc.competencia }}</textarea> 
             </form>
         </section>
 
@@ -92,7 +90,7 @@
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                 {% csrf_token %}
                 <h4>Entregas processuais</h4>
-                <textarea class="smc-textarea" name="entregas-processuais-text">{{ smc.entregas_processuais }}</textarea> 
+                <textarea class="smc-textarea" name="entregas-processuais-text" placeholder="Petições, participação em audiência, diligências em órgãos públicos...">{{ smc.entregas_processuais }}</textarea> 
             </form>
         </section>
 
@@ -100,7 +98,7 @@
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                 {% csrf_token %}
                 <h5>Prazos</h5>
-                <textarea class="smc-textarea" name="prazos-text">{{ smc.prazos }}</textarea> 
+                <textarea class="smc-textarea" name="prazos-text" placeholder="Prazos para as entregas processuais.">{{ smc.prazos }}</textarea> 
             </form>
         </section>
 
@@ -108,7 +106,7 @@
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                 {% csrf_token %}
                 <h5>Equipe</h5>
-                <textarea class="smc-textarea" name="equipe-text">{{ smc.equipe }}</textarea> 
+                <textarea class="smc-textarea-minor" name="equipe-text" placeholder="Profissionais do escritório que atuarão na demanda.">{{ smc.equipe }}</textarea> 
             </form>
         </section>
 
@@ -116,7 +114,7 @@
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                 {% csrf_token %}
                 <h4>Nome da peça</h4>
-                <textarea class="smc-textarea" name="nome-peca-text">{{ smc.nome_peca }}</textarea> 
+                <textarea class="smc-textarea" name="nome-peca-text" placeholder="Ação de Execução, Recurso Ordinário, Embargos de Terceiros, Ação Indenizatória, Contestação, Ação de Alimentos, Apelação, Reclamação Trabalhista...">{{ smc.nome_peca }}</textarea> 
             </form>
         </section>
 
@@ -124,7 +122,7 @@
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                 {% csrf_token %}
                 <h4>Benefícios</h4>
-                <textarea class="smc-textarea" name="beneficios-text">{{ smc.beneficios }}</textarea> 
+                <textarea class="smc-textarea" name="beneficios-text" placeholder="visão clara, qualificada e quantificada, do que será alcançado se a pretensão for atendida">{{ smc.beneficios }}</textarea> 
             </form>
         </section>
 
@@ -132,15 +130,15 @@
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                 {% csrf_token %}
                 <h4>Restrições</h4>
-                <textarea class="smc-textarea" name="restricoes-text">{{ smc.restricoes }}</textarea> 
+                <textarea class="smc-textarea" name="restricoes-text" placeholder="prazos de prescrição, teto nos juizados especiais, limites de testemunhas, entendimentos jurisprudenciais divergentes, parte adversa insolvente...">{{ smc.restricoes }}</textarea> 
             </form>
         </section>
 
-        <section class="honorarios-adv">
+        <section class="honorarios">
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                 {% csrf_token %}
                 <h5>Honorários advocatícios</h5>
-                <textarea class="smc-textarea" name="Honorários-text">{{ smc.honorarios }}</textarea> 
+                <textarea class="smc-textarea-minor" name="honorarios-text" placeholder="Custos com a contratação do escritório/advogado">{{ smc.honorarios }}</textarea> 
             </form>
         </section>
         
@@ -148,7 +146,7 @@
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                 {% csrf_token %}
                 <h5>Demais despesas</h5>
-                <textarea class="smc-textarea" name="demais-despesas-text">{{ smc.demais_despesas }}</textarea> 
+                <textarea class="smc-textarea-minor" name="demais-despesas-text" placeholder="Custas judiciais, taxas judiciárias, viagens, cópias...">{{ smc.demais_despesas }}</textarea> 
             </form>
         </section>
     </section>
@@ -159,7 +157,8 @@
             <input type="textarea" placeholder="Ementa" value="{{ smc.ementa }}" name="ementa-text" />
         </form>
     </footer>
-    <div class="autosave-message">Teste</div>
+
+    <footer class="smc-message">Suit Model Canvas &copy; 2022 by <a href="https://github.com/mayconblopes">mayconblopes</a></footer>
 
 </body>
 
