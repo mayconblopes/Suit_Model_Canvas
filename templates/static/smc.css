@@ -49,16 +49,6 @@ body {
     margin-right: 15px;
 }
 
-.canvas textarea {
-    width: 95%;
-    height: 85%;
-    background: transparent;
-    border: none; 
-    outline: none;
-    resize: none;
-    font-size: 1vw;
-
-}
 
 .smc-textarea {
     width: 95%;
@@ -70,6 +60,18 @@ body {
     font-size: 1vw;
 
 }
+
+.smc-textarea-minor {
+    width: 95%;
+    height: 60%;
+    background: transparent;
+    border: none; 
+    outline: none;
+    resize: none;
+    font-size: 1vw;
+
+}
+
 textarea::-webkit-scrollbar {
   width: 0.3rem;
   background-color: none; }
@@ -124,11 +126,11 @@ textarea::-webkit-scrollbar-thumb {
     grid-row: span 2
 }
 
-.honorarios-adv, .demais-despesas {
+.honorarios, .demais-despesas {
     grid-row: span 1;
 }
 
-.riscos, .prazos, .honorarios-adv, .demais-despesas {
+.riscos, .prazos, .honorarios, .demais-despesas {
     background-color: #26d4a4;
     border-radius: 10px;
     min-width: 50px;
@@ -136,12 +138,10 @@ textarea::-webkit-scrollbar-thumb {
     margin: 8px;
 }
 
-.autosave-message {
+.smc-message, .smc-message a {
     text-align: center;
     margin-top: 8px;
     color: greenyellow;
+    text-decoration: none;
 }
 
-.autosave-message--saving {
-    color: #999999;
-}
