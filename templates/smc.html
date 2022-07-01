@@ -8,6 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suit Model Canvas</title>
     <link rel="stylesheet" href="{% static 'smc.css' %}">
+    <!-- Montserrat font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- htmlx script -->
     <script src="https://unpkg.com/htmx.org@1.7.0" integrity="sha384-EzBXYPt0/T6gxNp0nuPtLkmRpmDBbjg6WmCUZRLXBBwYYmwAUxzlSGej0ARHX0Bo" crossorigin="anonymous"></script>
 </head>
@@ -130,7 +134,7 @@
             <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
                 {% csrf_token %}
                 <h4>Restrições</h4>
-                <textarea class="smc-textarea" name="restricoes-text" placeholder="prazos de prescrição, teto nos juizados especiais, limites de testemunhas, entendimentos jurisprudenciais divergentes, parte adversa insolvente...">{{ smc.restricoes }}</textarea> 
+                <textarea class="smc-textarea" name="restricoes-text" placeholder="Prazos de prescrição, teto nos juizados especiais, limites de testemunhas, entendimentos jurisprudenciais divergentes, parte adversa insolvente...">{{ smc.restricoes }}</textarea> 
             </form>
         </section>
 
