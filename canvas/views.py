@@ -28,7 +28,7 @@ def smc(request, pk):
         smc.pedidos = request.POST.get('pedidos-text') or smc.pedidos
         smc.beneficios = request.POST.get('beneficios-text') or smc.beneficios
         smc.partes_processo = request.POST.get('partes-processo-text') or smc.partes_processo
-        smc.terceiros = request.POST.get('terceiros') or smc.terceiros
+        smc.terceiros = request.POST.get('terceiros-text') or smc.terceiros
         smc.competencia = request.POST.get('competencia-text') or smc.competencia
         smc.equipe = request.POST.get('equipe-text') or smc.equipe
         smc.provas = request.POST.get('provas-text') or smc.provas
