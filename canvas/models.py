@@ -20,5 +20,6 @@ class SuitModelCanvas (models.Model):
     prazos = models.CharField(max_length=1000)
     honorarios = models.CharField(max_length=500)
     demais_despesas = models.CharField(max_length=1000)
+    ementa = models.CharField(max_length=3000)
 
     
