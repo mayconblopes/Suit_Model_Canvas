@@ -20,6 +20,18 @@ def new_smc(request):
 
 def smc(request, pk):
     smc = get_object_or_404(SuitModelCanvas, pk=pk)
+
+    #finds the previous and prox (next) smc if exists
+    try:
+        prev = str(int(pk)-1) if SuitModelCanvas.objects.get(pk=str(int(pk)-1)) else pk
+    except:
+        prev = pk
+
+    try:
+        prox = str(int(pk)+1) if SuitModelCanvas.objects.get(pk=str(int(pk)+1)) else pk
+    except:
+        prox = pk
+
     if request.method == "POST":
         smc.pretensao = request.POST.get('pretensao-text') or smc.pretensao
         smc.requisitos_documentais = request.POST.get('requisitos-documentais-text') or smc.requisitos_documentais
@@ -41,8 +53,11 @@ def smc(request, pk):
         smc.ementa = request.POST.get('ementa-text') or smc.ementa
             
         smc.save()
+        
         if request.htmx:
             # return 204 No Content - HTTP
             return HttpResponse(status=204)
     else:
-        return render(request, 'smc.html', {'smc': smc})
+        return render(request, 'smc.html', {'smc': smc,
+                                            'prev': prev,
+                                            'prox': prox,})
