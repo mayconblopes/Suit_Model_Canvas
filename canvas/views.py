@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 from canvas.models import SuitModelCanvas
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
+from django.core.paginator import Paginator
 
 
 
@@ -17,20 +18,39 @@ def new_smc(request):
     smc.save()
     return redirect(f'/smc/{smc.pk}')
 
+def conf_del_smc(request, pk):
+    return render(request, 'conf_del_smc.html', {'pk': pk})
+
+def del_smc(request, pk):
+    smc = get_object_or_404(SuitModelCanvas, pk=pk)
+    smc.delete()
+    smc = SuitModelCanvas.objects.all().last()
+    return redirect(f'/smc/{smc.pk}')
+
 
 def smc(request, pk):
     smc = get_object_or_404(SuitModelCanvas, pk=pk)
+    qs = SuitModelCanvas.objects.all()
 
+    # unpack the queryset into a list, then use the inbuilt Python index function to determine smc instance position.
+    actual_page = (*qs,).index(smc)
+    
     #finds the previous and prox (next) smc if exists
-    try:
-        prev = str(int(pk)-1) if SuitModelCanvas.objects.get(pk=str(int(pk)-1)) else pk
-    except:
-        prev = pk
+    prev = actual_page
+    prox = actual_page
 
     try:
-        prox = str(int(pk)+1) if SuitModelCanvas.objects.get(pk=str(int(pk)+1)) else pk
-    except:
-        prox = pk
+        prev = (qs[actual_page - 1]).pk
+    except ValueError:
+        prev = (qs[actual_page]).pk
+        print("Não existe SMC anterior ao atual")
+        
+    try:
+        prox = (qs[actual_page + 1]).pk
+    except IndexError:
+        prox = (qs[actual_page]).pk
+        print("Não existe SMC posterior ao atual")
+
 
     if request.method == "POST":
         smc.pretensao = request.POST.get('pretensao-text') or smc.pretensao
@@ -60,4 +80,5 @@ def smc(request, pk):
     else:
         return render(request, 'smc.html', {'smc': smc,
                                             'prev': prev,
-                                            'prox': prox,})
+                                            'prox': prox,
+                                            'qs': qs})

@@ -22,4 +22,7 @@ class SuitModelCanvas (models.Model):
     demais_despesas = models.CharField(max_length=1000)
     ementa = models.CharField(max_length=3000)
 
+    class Meta:
+        ordering = ('pk',)
+
     
