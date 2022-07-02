@@ -15,7 +15,7 @@ def index(request):
 def new_smc(request):
     smc = SuitModelCanvas()
     smc.save()
-    return redirect(f'smc/{smc.pk}')
+    return redirect(f'/smc/{smc.pk}')
 
 
 def smc(request, pk):

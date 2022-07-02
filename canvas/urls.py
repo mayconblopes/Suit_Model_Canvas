@@ -6,5 +6,6 @@ from . import views
 urlpatterns = [
     path('', views.index, name="index"),
     path('smc/<str:pk>', views.smc, name="smc"),
+    path('new/', views.new_smc, name="new"),
 
 ]

@@ -155,7 +155,7 @@ textarea::-webkit-scrollbar-thumb {
     font-size: 0.8vw;
 }
 
-.menu, .menu a {
+.nav-menu, .nav-menu a {
     text-decoration: none;
     text-align: center;
     margin-top: 8px;
@@ -163,4 +163,13 @@ textarea::-webkit-scrollbar-thumb {
     text-decoration: none;
     font-size: 1vw;
 
+}
+
+.edit-menu, .edit-menu a {
+    text-align: left;
+    margin-top: 8px;
+    margin-left: 8px;
+    color: greenyellow;
+    text-decoration: none;
+    font-size: 1vw;
 }
