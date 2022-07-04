@@ -144,13 +144,14 @@ textarea::-webkit-scrollbar-thumb {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr 1fr;
+    width: 97%;
+    margin-left: 15px;
     
 } 
 
 .smc-message, .smc-message a {
-    text-align: right;
+    text-align: left;
     margin-top: 8px;
-    margin-right: 15px;
     color: greenyellow;
     font-size: 0.8vw;
 }
@@ -165,11 +166,14 @@ textarea::-webkit-scrollbar-thumb {
 
 }
 
-.edit-menu, .edit-menu a {
-    text-align: left;
+.edit-menu, .edit-menu a, p {
+    text-align: right;
     margin-top: 8px;
-    margin-left: 8px;
     color: greenyellow;
     text-decoration: none;
     font-size: 1vw;
+}
+
+.edit-menu a {
+    padding-left: 20px;
 }

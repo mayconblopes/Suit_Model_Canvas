@@ -81,4 +81,4 @@ def smc(request, pk):
         return render(request, 'smc.html', {'smc': smc,
                                             'prev': prev,
                                             'prox': prox,
-                                            'qs': qs})
+                                            'len_qs': len(qs)})
