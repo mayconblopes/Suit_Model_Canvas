@@ -50,7 +50,6 @@ body {
     margin-right: 15px;
 }
 
-
 .smc-textarea {
     width: 95%;
     height: 85%;
@@ -84,16 +83,21 @@ textarea::-webkit-scrollbar-thumb {
   background-color: #ee5858; }
 
 .pretensao, .requisitos-documentais, .nome-peca {
-    background-color: #ccb52a;
+    background-color: rgb(204, 181, 42);
     border-radius: 10px;
     min-width: 50px;
     min-height: 50px;
     margin: 8px;
     grid-row: span 2;
+}
+
+.pretensao:focus-within, .requisitos-documentais:focus-within, .nome-peca:focus-within {
+    box-shadow: 5px 5px 5px black;
+    background-color: rgb(224, 201, 52);
 }
 
 .causa-pedir, .pedidos, .beneficios {
-    background-color: #c797dd;
+    background-color: rgb(199, 151, 221);
     border-radius: 10px;
     min-width: 50px;
     min-height: 50px;
@@ -101,8 +105,13 @@ textarea::-webkit-scrollbar-thumb {
     grid-row: span 2;
 }
 
+.causa-pedir:focus-within, .pedidos:focus-within, .beneficios:focus-within {
+    box-shadow: 5px 5px 5px black;
+    background-color: rgb(229, 171, 231);
+}
+
 .partes-processo, .terceiros, .competencia, .equipe {
-    background-color: #dfd6e3;
+    background-color: rgb(223, 214, 227);
     border-radius: 10px;
     min-width: 50px;
     min-height: 50px;
@@ -110,13 +119,25 @@ textarea::-webkit-scrollbar-thumb {
     grid-row: span 1;
 }
 
+.partes-processo:focus-within, .terceiros:focus-within, .competencia:focus-within, .equipe:focus-within {
+    box-shadow: 5px 5px 5px black;
+    background-color: rgb(243, 224, 237);
+}
+
+
 .provas, .entregas-processuais, .restricoes {
-    background-color: #a3a8f8;
+    background-color: rgb(163, 168, 248);
     border-radius: 10px;
     min-width: 50px;
     min-height: 50px;
     margin: 8px;
 }
+
+.provas:focus-within, .entregas-processuais:focus-within, .restricoes:focus-within {
+    box-shadow: 5px 5px 5px black;
+    background-color: rgb(183, 188, 247);
+}
+
 
 .provas, .entregas-processuais, .riscos, .prazos {
     grid-row: span 2;
@@ -132,12 +153,18 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 .riscos, .prazos, .honorarios, .demais-despesas {
-    background-color: #26d4a4;
+    background-color: rgb(38, 212, 164);
     border-radius: 10px;
     min-width: 50px;
     min-height: 50px;
     margin: 8px;
 }
+
+.riscos:focus-within, .prazos:focus-within, .honorarios:focus-within, .demais-despesas:focus-within {
+    box-shadow: 5px 5px 5px black;
+    background-color: rgb(58, 232, 174);
+}
+
 
 .end-footer {   
     width: 100vw;    
