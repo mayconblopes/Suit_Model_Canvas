@@ -1,183 +1,191 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suit Model Canvas</title>
-    <link rel="stylesheet" href="{% static 'smc.css' %}">
-    <!-- Montserrat font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- htmlx script -->
-    <script src="https://unpkg.com/htmx.org@1.7.0" integrity="sha384-EzBXYPt0/T6gxNp0nuPtLkmRpmDBbjg6WmCUZRLXBBwYYmwAUxzlSGej0ARHX0Bo" crossorigin="anonymous"></script>
-</head>
-<body>
-    <section class="canvas">
-        
-        <section class="pretensao">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">  
-                {% csrf_token %}
-                <h4>Pretensão</h4>
-                <textarea class="smc-textarea" name="pretensao-text" placeholder="Aquilo que o cliente deseja realizar.">{{ smc.pretensao }}</textarea> 
-            </form>  
-        </section>
+{% block content %}
+<section class="canvas">
 
-        <section class="causa-pedir">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">  
-                {% csrf_token %}
-                <h4>Causa de Pedir</h4>
-                <textarea class="smc-textarea" name="causa-pedir-text" placeholder="Especificar os fatos e os fundamentos jurídicos.">{{ smc.causa_pedir }}</textarea> 
-            </form>  
-        </section>
-
-        <section class="partes-processo">
-                <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
-                    {% csrf_token %}
-                    <h5>Partes do processo</h5>
-                    <textarea class="smc-textarea-minor" name="partes-processo-text" placeholder="Autor/réu, reclamante/reclamado, requerente/requerido...">{{ smc.partes_processo }}</textarea> 
-                </form>
-        </section>
-
-        <section class="provas">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
-                {% csrf_token %}
-                <h4>Provas</h4>
-                <textarea class="smc-textarea" name="provas-text" placeholder="Elementos necessários (documentos, testemunhos, perícias...) para demonstrar a veracidade da causa de pedir.">{{ smc.provas }}</textarea> 
-            </form>
-        </section>
-
-        <section class="riscos">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
-                {% csrf_token %}
-                <h5>Riscos</h5>
-                <textarea class="smc-textarea" name="riscos-text" placeholder="Valores na sucumbência, restrições civis/penais, obrigações de fazer...">{{ smc.riscos }}</textarea> 
-            </form>
-        </section>
-        
-        <section class="terceiros">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
-                {% csrf_token %}
-                <h5>Terceiros</h5>
-                <textarea class="smc-textarea-minor" name="terceiros-text" placeholder="Qualquer pessoa com algum interesse na causa.">{{ smc.terceiros }}</textarea> 
-            </form>
-        </section>
-        
-        <section class="requisitos-documentais">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
-                {% csrf_token %}
-                <h4>Requisitos documentais</h4>
-                <textarea class="smc-textarea" name="requisitos-documentais-text" placeholder="Lista de documentos necessários para demanda.">{{ smc.requisitos_documentais }}</textarea> 
-            </form>
-        </section>
-
-        <section class="pedidos">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
-                {% csrf_token %}
-                <h4>Pedidos</h4>
-                <textarea class="smc-textarea" name="pedidos-text" placeholder="Rol de pedidos a ser apreciado pela autoridade competente.">{{ smc.pedidos }}</textarea> 
-            </form>
-        </section>
-
-        <section class="competencia">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
-                {% csrf_token %}
-                <h5>Competência</h5>
-                <textarea class="smc-textarea-minor" name="competencia-text" placeholder="Justiça do Trabalho, Justiça Estadual, Juizado Especial...">{{ smc.competencia }}</textarea> 
-            </form>
-        </section>
-
-        <section class="entregas-processuais">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
-                {% csrf_token %}
-                <h4>Entregas processuais</h4>
-                <textarea class="smc-textarea" name="entregas-processuais-text" placeholder="Petições, participação em audiência, diligências em órgãos públicos...">{{ smc.entregas_processuais }}</textarea> 
-            </form>
-        </section>
-
-        <section class="prazos">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
-                {% csrf_token %}
-                <h5>Prazos</h5>
-                <textarea class="smc-textarea" name="prazos-text" placeholder="Prazos para as entregas processuais.">{{ smc.prazos }}</textarea> 
-            </form>
-        </section>
-
-        <section class="equipe">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
-                {% csrf_token %}
-                <h5>Equipe</h5>
-                <textarea class="smc-textarea-minor" name="equipe-text" placeholder="Profissionais do escritório que atuarão na demanda.">{{ smc.equipe }}</textarea> 
-            </form>
-        </section>
-
-        <section class="nome-peca">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
-                {% csrf_token %}
-                <h4>Nome da peça</h4>
-                <textarea class="smc-textarea" name="nome-peca-text" placeholder="Ação de Execução, Recurso Ordinário, Embargos de Terceiros, Ação Indenizatória, Contestação, Ação de Alimentos, Apelação, Reclamação Trabalhista...">{{ smc.nome_peca }}</textarea> 
-            </form>
-        </section>
-
-        <section class="beneficios">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
-                {% csrf_token %}
-                <h4>Benefícios</h4>
-                <textarea class="smc-textarea" name="beneficios-text" placeholder="visão clara, qualificada e quantificada, do que será alcançado se a pretensão for atendida">{{ smc.beneficios }}</textarea> 
-            </form>
-        </section>
-
-        <section class="restricoes">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
-                {% csrf_token %}
-                <h4>Restrições</h4>
-                <textarea class="smc-textarea" name="restricoes-text" placeholder="Prazos de prescrição, teto nos juizados especiais, limites de testemunhas, entendimentos jurisprudenciais divergentes, parte adversa insolvente...">{{ smc.restricoes }}</textarea> 
-            </form>
-        </section>
-
-        <section class="honorarios">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
-                {% csrf_token %}
-                <h5>Honorários advocatícios</h5>
-                <textarea class="smc-textarea-minor" name="honorarios-text" placeholder="Custos com a contratação do escritório/advogado">{{ smc.honorarios }}</textarea> 
-            </form>
-        </section>
-        
-        <section class="demais-despesas">
-            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
-                {% csrf_token %}
-                <h5>Demais despesas</h5>
-                <textarea class="smc-textarea-minor" name="demais-despesas-text" placeholder="Custas judiciais, taxas judiciárias, viagens, cópias...">{{ smc.demais_despesas }}</textarea> 
-            </form>
-        </section>
-    </section>
-    
-    <footer class="ementa">
+    <section class="pretensao">
         <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
             {% csrf_token %}
-            <input type="textarea" placeholder="Ementa" value="{{ smc.ementa }}" name="ementa-text" />
+            <h4>Pretensão</h4>
+            <textarea class="smc-textarea" name="pretensao-text" placeholder="Aquilo que o cliente deseja realizar.">{{ smc.pretensao }}</textarea>
         </form>
-    </footer>
+    </section>
 
-    <footer class="end-footer">
-        <p class="smc-message">Suit Model Canvas &copy; 2022 by <a href="https://github.com/mayconblopes">mayconblopes</a></p> 
-        <nav class="nav-menu"> 
-            <a href="./{{prev}}">←</a>
-            <a href="/">⌂</a> 
-            <a href="./{{prox}}">→</a>
-        </nav>
+    <section class="causa-pedir">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <h4>Causa de Pedir</h4>
+            <textarea class="smc-textarea" name="causa-pedir-text" placeholder="Especificar os fatos e os fundamentos jurídicos.">{{ smc.causa_pedir }}</textarea>
+        </form>
+    </section>
 
-        <nav class="edit-menu">
-            <a href="/new/">🗋</a>
-            <a href="./conf-del/{{smc.id}}">X</a>
-            <a href="#"># {{len_qs}}</a>
-        </nav>
-    </footer>
+    <section class="partes-processo">
+            <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+                {% csrf_token %}
+                <h5>Partes do processo</h5>
+                <textarea class="smc-textarea-minor" name="partes-processo-text" placeholder="Autor/réu, reclamante/reclamado, requerente/requerido...">{{ smc.partes_processo }}</textarea>
+            </form>
+    </section>
 
-</body>
+    <section class="provas">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <h4>Provas</h4>
+            <textarea class="smc-textarea" name="provas-text" placeholder="Elementos necessários (documentos, testemunhos, perícias...) para demonstrar a veracidade da causa de pedir.">{{ smc.provas }}</textarea>
+        </form>
+    </section>
+
+    <section class="riscos">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <h5>Riscos</h5>
+            <textarea class="smc-textarea" name="riscos-text" placeholder="Valores na sucumbência, restrições civis/penais, obrigações de fazer...">{{ smc.riscos }}</textarea>
+        </form>
+    </section>
+
+    <section class="terceiros">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <h5>Terceiros</h5>
+            <textarea class="smc-textarea-minor" name="terceiros-text" placeholder="Qualquer pessoa com algum interesse na causa.">{{ smc.terceiros }}</textarea>
+        </form>
+    </section>
+
+    <section class="requisitos-documentais">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <h4>Requisitos documentais</h4>
+            <textarea class="smc-textarea" name="requisitos-documentais-text" placeholder="Lista de documentos necessários para demanda.">{{ smc.requisitos_documentais }}</textarea>
+        </form>
+    </section>
+
+    <section class="pedidos">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <h4>Pedidos</h4>
+            <textarea class="smc-textarea" name="pedidos-text" placeholder="Rol de pedidos a ser apreciado pela autoridade competente.">{{ smc.pedidos }}</textarea>
+        </form>
+    </section>
+
+    <section class="competencia">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <h5>Competência</h5>
+            <textarea class="smc-textarea-minor" name="competencia-text" placeholder="Justiça do Trabalho, Justiça Estadual, Juizado Especial...">{{ smc.competencia }}</textarea>
+        </form>
+    </section>
+
+    <section class="entregas-processuais">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <h4>Entregas processuais</h4>
+            <textarea class="smc-textarea" name="entregas-processuais-text" placeholder="Petições, participação em audiência, diligências em órgãos públicos...">{{ smc.entregas_processuais }}</textarea>
+        </form>
+    </section>
+
+    <section class="prazos">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <h5>Prazos</h5>
+            <textarea class="smc-textarea" name="prazos-text" placeholder="Prazos para as entregas processuais.">{{ smc.prazos }}</textarea>
+        </form>
+    </section>
+
+    <section class="equipe">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <h5>Equipe</h5>
+            <textarea class="smc-textarea-minor" name="equipe-text" placeholder="Profissionais do escritório que atuarão na demanda.">{{ smc.equipe }}</textarea>
+        </form>
+    </section>
+
+    <section class="nome-peca">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <h4>Nome da peça</h4>
+            <textarea class="smc-textarea" name="nome-peca-text" placeholder="Ação de Execução, Recurso Ordinário, Embargos de Terceiros, Ação Indenizatória, Contestação, Ação de Alimentos, Apelação, Reclamação Trabalhista...">{{ smc.nome_peca }}</textarea>
+        </form>
+    </section>
+
+    <section class="beneficios">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <h4>Benefícios</h4>
+            <textarea class="smc-textarea" name="beneficios-text" placeholder="visão clara, qualificada e quantificada, do que será alcançado se a pretensão for atendida">{{ smc.beneficios }}</textarea>
+        </form>
+    </section>
+
+    <section class="restricoes">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <h4>Restrições</h4>
+            <textarea class="smc-textarea" name="restricoes-text" placeholder="Prazos de prescrição, teto nos juizados especiais, limites de testemunhas, entendimentos jurisprudenciais divergentes, parte adversa insolvente...">{{ smc.restricoes }}</textarea>
+        </form>
+    </section>
+
+    <section class="honorarios">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <h5>Honorários advocatícios</h5>
+            <textarea class="smc-textarea-minor" name="honorarios-text" placeholder="Custos com a contratação do escritório/advogado">{{ smc.honorarios }}</textarea>
+        </form>
+    </section>
+
+    <section class="demais-despesas">
+        <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+            {% csrf_token %}
+            <h5>Demais despesas</h5>
+            <textarea class="smc-textarea-minor" name="demais-despesas-text" placeholder="Custas judiciais, taxas judiciárias, viagens, cópias...">{{ smc.demais_despesas }}</textarea>
+        </form>
+    </section>
+</section>
+
+<footer class="ementa">
+    <form action="./{{smc.id}}" method="POST" hx-post="./{{smc.id}}" hx-swap="outerHTML" hx-trigger="change">
+        {% csrf_token %}
+        <input type="textarea" placeholder="Ementa" value="{{ smc.ementa }}" name="ementa-text" />
+    </form>
+</footer>
+
+<footer class="end-footer">
+    <p class="smc-message">Suit Model Canvas &copy; 2022 by <a href="https://github.com/mayconblopes">mayconblopes</a></p>
+    <nav class="nav-menu">
+        <a href="./{{prev}}">←</a>
+        <a href="/">⌂</a>
+        <a href="./{{prox}}">→</a>
+    </nav>
+
+    <nav class="edit-menu">
+        <a href="/new/">🗋</a>
+        <a href="#" type="button" data-toggle="modal" data-target="#modal-conf-del">X</a>
+        <a># {{len_qs}}</a>
+    </nav>
+
+    <div class="modal fade" id="modal-conf-del" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Atenção!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Deseja mesmo deletar este SMC?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-secondary" href="/smc/del/{{smc.pk}}">Apagar SMC {{smc.pk}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-</html>
+</footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% endblock content %}
+

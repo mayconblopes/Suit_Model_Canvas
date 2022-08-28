@@ -1,17 +1,49 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-</head>
-<body>
-    <form action="." method="POST">
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+<header>
+    <h1 id="welcome-msg">Suit Model Canvas</h1>
+</header>
+
+<section id="menu">
+    <form class="menu-item"   action="." method="POST">
         {% csrf_token %}
-        <button type="submit"><h1>Novo Suit Model Canvas</button></h1>
+        <button type="submit">🗋</button>
+        <h2 class="form-msg">Novo SMC</h2>
     </form>
 
+    <div class="menu-item">
+        <button id="list-btn">꛷</button>
+        <h2 class="form-msg">Listar cada SMC</h2>
+    </div>
+</section>
 
-</body>
-</html>
+<section id="smc-list" class="inactive">
+    {% for smc in smc_list %}
+        <div>
+            <a href="/smc/{{smc.id}}">
+                {% if smc.ementa and smc.partes_processo %}
+                    <p>{{smc.id}}: {{smc.ementa|upper}} {{smc.partes_processo|title}}</p>
+                {% elif smc.ementa %}
+                    <p>{{smc.id}}: {{smc.ementa|upper}}</p>
+                {% elif smc.partes_processo %}
+                    <p>{{smc.id}}: {{smc.partes_processo|title}}</p>
+                {% else %}
+                    <p>{{smc.id}}: [sem descrição]</p>
+                {% endif %}
+            </a>
+        </div>
+    {% empty %}
+        <p>Lista vazia</p>
+    {% endfor %}
+</section>
+
+<script src="{% static 'main.js' %}"></script>
+
+{% endblock content %}
