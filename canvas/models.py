@@ -1,8 +1,7 @@
 from django.db import models
 
-# Create your models here.
 
-class SuitModelCanvas (models.Model):
+class SuitModelCanvas(models.Model):
     pretensao = models.CharField(max_length=1000)
     requisitos_documentais = models.CharField(max_length=1000)
     nome_peca = models.CharField(max_length=1000)
@@ -25,4 +24,5 @@ class SuitModelCanvas (models.Model):
     class Meta:
         ordering = ('pk',)
 
-    
+    def __str__(self):
+        return self.ementa
