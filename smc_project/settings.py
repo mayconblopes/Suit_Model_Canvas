@@ -21,14 +21,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-if os.environ.get('SECRET_KEY'):
-    SECRET_KEY = os.environ.get('SECRET_KEY')
-    DEBUG = int(os.environ.get('DEBUG'))
+if os.getenv('SECRET_KEY'):
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    DEBUG = False
 else:
     SECRET_KEY = config('SECRET_KEY')
-    DEBUG = int(config('DEBUG'))
+    DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -110,9 +110,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -128,5 +128,7 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = 'templates/static/'
-STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'templates/static'),)
+
+CSRF_TRUSTED_ORIGINS = ['https://*.smc.fly.dev']
