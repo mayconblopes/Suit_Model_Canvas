@@ -27,6 +27,7 @@ body {
     font-size: 1.3vw;
 }
 
+
 .ementa input {
     margin-left: 15px;
     width: 97%;
@@ -54,7 +55,7 @@ body {
     width: 95%;
     height: 85%;
     background: transparent;
-    border: none; 
+    border: none;
     outline: none;
     resize: none;
     font-size: 1vw;
@@ -65,7 +66,7 @@ body {
     width: 95%;
     height: 60%;
     background: transparent;
-    border: none; 
+    border: none;
     outline: none;
     resize: none;
     font-size: 1vw;
@@ -166,15 +167,14 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 
-.end-footer {   
-    width: 100vw;    
+.end-footer {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     width: 97%;
     margin-left: 15px;
-    
-} 
+
+}
 
 .smc-message, .smc-message a {
     text-align: left;
@@ -203,4 +203,126 @@ textarea::-webkit-scrollbar-thumb {
 
 .edit-menu a {
     padding-left: 20px;
+}
+
+@media (max-width: 1200px) {
+    .canvas {
+        width: 150%;
+        overflow-x: auto;
+    }
+
+
+    .canvas h4{
+        font-size: 16px;
+    }
+
+    .canvas h5 {
+        font-size: 15px;
+    }
+
+
+    .ementa input {
+        margin-left: 15px;
+        font-size: 12px;
+        width: 146%;
+    }
+
+    .canvas form {
+        overflow: auto;
+    }
+
+
+
+    .smc-textarea {
+        font-size: 12px;
+
+    }
+
+    .smc-textarea-minor {
+        font-size: 11px;
+
+    }
+
+    .end-footer {
+        width: 146%;
+
+    }
+
+    .smc-message, .smc-message a {
+        font-size: 12px;
+    }
+
+    .nav-menu, .nav-menu a {
+        font-size: 16px;
+
+    }
+
+    .edit-menu, .edit-menu a, p {
+        font-size: 16px;
+    }
+
+    .edit-menu a {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 794px) {
+    .canvas {
+        width: 180%;
+        overflow-x: auto;
+    }
+
+
+    .canvas h4{
+        font-size: 13.5px;
+    }
+
+    .canvas h5 {
+        font-size: 15px;
+    }
+
+
+    .ementa input {
+        margin-left: 15px;
+        font-size: 10px;
+        width: 170%;
+    }
+
+    .canvas form {
+        overflow: auto;
+    }
+
+
+
+    .smc-textarea {
+        font-size: 11px;
+
+    }
+
+    .smc-textarea-minor {
+        font-size: 10px;
+
+    }
+
+    .end-footer {
+        width: 170%;
+
+    }
+
+    .smc-message, .smc-message a {
+        font-size: 8px;
+    }
+
+    .nav-menu, .nav-menu a {
+        font-size: 16px;
+
+    }
+
+    .edit-menu, .edit-menu a, p {
+        font-size: 16px;
+    }
+
+    .edit-menu a {
+        padding-left: 20px;
+    }
 }
