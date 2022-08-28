@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deletar SMC</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     <a href="/smc/del/{{pk}}"><button><h1>Apagar SMC {{pk}}</button></h1></a>
     <a href="/smc/{{pk}}"> <button type="submit"><h1>Cancelar</button></h1></a>
-</body>
-</html>
+{% endblock content %}
