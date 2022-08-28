@@ -1,0 +1,53 @@
+header #welcome-msg {
+    background: #ccb52a;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 1px 1px 5px black;
+}
+
+button {
+    text-decoration: none;
+    font-size: 45px;
+    background: none;
+    color: #adff2f;
+    width: 65px;
+    box-shadow: 1px 1px 5px black;
+    border: none
+}
+
+button:active {
+    background: #000000;
+}
+
+#menu {
+    padding: 20px;
+}
+
+.form-msg {
+    color: #adff2f;
+}
+
+
+.menu-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#smc-list {
+    padding: 20px;
+    padding: 20px;
+    margin: 0px 20px 20px 20px;
+    box-shadow: 1px 1px 5px black;
+}
+
+#smc-list p{
+    text-align: left;
+    font-size: 16px;
+    margin-bottom:30px;
+}
+
+.inactive {
+    display: none;
+}
