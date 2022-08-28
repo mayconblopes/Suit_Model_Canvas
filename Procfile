@@ -1,0 +1,1 @@
+web: gunicorn smc_project.wsgi

@@ -11,8 +11,8 @@ body {
 
 .canvas {   
     padding: 8px;
-    height: 92vh;
-    width: 100vw;    
+    height: 90vh;
+    width: auto;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -325,4 +325,5 @@ textarea::-webkit-scrollbar-thumb {
     .edit-menu a {
         padding-left: 20px;
     }
+
 }
