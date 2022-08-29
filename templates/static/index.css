@@ -1,3 +1,7 @@
+html, body {
+    overflow: auto;
+}
+
 header #welcome-msg {
     background: #ccb52a;
     padding: 30px;
