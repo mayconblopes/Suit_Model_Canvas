@@ -1,18 +1,17 @@
+from decouple import config
 from django.shortcuts import render
 from django.shortcuts import redirect
 from canvas.models import SuitModelCanvas
 from django.shortcuts import get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, FileResponse
 
 
 def index(request):
-
     if request.method == 'POST':
         return new_smc(request)
     else:
         smc_list = SuitModelCanvas.objects.all()
         return render(request, 'index.html', {'smc_list': smc_list})
-
 
 
 def new_smc(request):
@@ -85,3 +84,7 @@ def smc(request, pk):
                                             'prev': prev,
                                             'prox': prox,
                                             'len_qs': len(qs)})
+
+
+def bkp(request):
+    return FileResponse(open('data/db.sqlite3', 'rb')) if request.user.is_superuser else redirect('/')
